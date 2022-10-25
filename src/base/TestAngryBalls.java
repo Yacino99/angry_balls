@@ -28,6 +28,7 @@ public class TestAngryBalls {
 	public static void main(String[] args) {
 //---------------------- gestion des bruitages : paramétrage du chemin du dossier contenant les fichiers audio --------------------------
 
+		// petite modif
 		File file = new File(""); // lé oé la JVM est lancée : racine du projet
 
 		File répertoireSon = new File(file.getAbsoluteFile(),
