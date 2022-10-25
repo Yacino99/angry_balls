@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="malibsonique">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ressources_projet_decorateur_22_23/malibsonique.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/ressources_projet_decorateur_22_23/malibsonique.jar!/" />
+    </SOURCES>
+  </library>
+</component>
