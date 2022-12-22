@@ -15,9 +15,19 @@ import modele.Bille;
  */
 public class Billard extends Canvas {
 	Vector<Bille> billes;
-
+	//Graphics graphics;
 	public Billard(Vector<Bille> billes) {
 		this.billes = billes;
+
+		/*this.setIgnoreRepaint(true);
+		int nombreBuffers = 2;
+		//this.setVisible(true);
+
+		this.createBufferStrategy(nombreBuffers);
+
+
+		//Thread.sleep(100);   // il faut attendre un minimum de 50 ms pour que le buffer soit operationnel
+		this.graphics = this.getBufferStrategy().getDrawGraphics();*/
 	}
 
 	/*

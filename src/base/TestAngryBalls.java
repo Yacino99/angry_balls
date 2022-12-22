@@ -51,8 +51,11 @@ public class TestAngryBalls {
 		CadreAngryBalls cadre = new CadreAngryBalls("Angry balls",
 				"Animation de billes ayant des comportements différents. Situation idéale pour mettre en place le DP Decorator",
 				billes, hurlements, choixHurlementInitial);
-
 		cadre.montrer(); // on rend visible la vue
+		cadre.createBufferStrategy(2);
+
+		//cadre.getBufferStrategy().show();
+
 
 //------------- remplissage de la liste avec 5 billes -------------------------------
 

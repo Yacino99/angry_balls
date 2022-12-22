@@ -16,7 +16,7 @@ import mesmaths.geometrie.base.Vecteur;
  * modéle NE DOIT PAS dépendre de la vue !!! Vous devez faire les modifications
  * en conséquence !! Exploitez les Design Patterns.
  * 
- * On rappelle que ces références é une librairie graphique sont néfastes car si
+ * On rappelle que ces références a une librairie graphique sont néfastes car si
  * on change de librairie graphique, voire on fait migrer le projet sur android,
  * il faut modifier les classes du modéle. La maintenance devient catastrophique
  * 
@@ -105,7 +105,7 @@ public abstract class Bille {
 	}
 
 	/**
-	 * mise é jour de position et vitesse é t+deltaT é partir de position et vitesse
+	 * mise a jour de position et vitesse é t+deltaT é partir de position et vitesse
 	 * é l'instant t
 	 * 
 	 * modifie le vecteur position et le vecteur vitesse
@@ -168,6 +168,8 @@ public abstract class Bille {
 
 	public void dessine(Graphics g) // référence awt : mauvais
 	{
+
+
 		int width, height;
 		int xMin, yMin;
 
