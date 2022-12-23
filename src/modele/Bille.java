@@ -1,6 +1,7 @@
 package modele;
 
 import java.awt.*;
+import java.awt.event.ItemListener;
 import java.util.Vector;
 
 import mesmaths.cinematique.Cinematique;
@@ -33,9 +34,8 @@ public abstract class Bille {
 	public Vecteur accélération;
 	public int clef; // identifiant unique de cette bille
 
-	private Color couleur; // référence awt : mauvais
+	//protected Color couleur; // référence awt : mauvais
 
-	private static int prochaineClef = 0;
 
 	public static double ro = 1; // masse volumique
 
@@ -46,14 +46,14 @@ public abstract class Bille {
 	 * @param accélération
 	 * @param couleur
 	 */
-	protected Bille(Vecteur centre, double rayon, Vecteur vitesse, Vecteur accélération, Color couleur) {
+	/*protected Bille(Vecteur centre, double rayon, Vecteur vitesse, Vecteur accélération, Color couleur) {
 		this.position = centre;
 		this.rayon = rayon;
 		this.vitesse = vitesse;
 		this.accélération = accélération;
 		this.couleur = couleur;
 		this.clef = Bille.prochaineClef++;
-	}
+	}*/
 
 	/**
 	 * @param position
@@ -61,63 +61,64 @@ public abstract class Bille {
 	 * @param vitesse
 	 * @param couleur
 	 */
-	public Bille(Vecteur position, double rayon, Vecteur vitesse, Color couleur) {
+	/*public Bille(Vecteur position, double rayon, Vecteur vitesse, Color couleur) {
 		this(position, rayon, vitesse, new Vecteur(), couleur);
-	}
+	}*/
 
 	/**
 	 * @return the position
 	 */
-	public Vecteur getPosition() {
+	/*public Vecteur getPosition() {
 		return this.position;
-	}
+	}*/
+
+	public abstract Vecteur getPosition();
 
 	/**
 	 * @return the rayon
 	 */
-	public double getRayon() {
+	/*public double getRayon() {
 		return this.rayon;
-	}
+	}*/
+
+	public abstract double getRayon();
 
 	/**
 	 * @return the vitesse
 	 */
-	public Vecteur getVitesse() {
-		return this.vitesse;
-	}
+	public abstract Vecteur getVitesse();
 
 	/**
 	 * @return the accélération
 	 */
-	public Vecteur getAccélération() {
-		return this.accélération;
-	}
+	public abstract Vecteur getAccélération();
 
 	/**
 	 * @return the clef
 	 */
-	public int getClef() {
-		return this.clef;
-	}
+	public abstract int getClef();
 
 	public double masse() {
-		return ro * Geop.volumeSphère(rayon);
+		return ro * Geop.volumeSphère(this.getRayon());
 	}
 
+	public abstract Color getCouleur();
 	/**
 	 * mise a jour de position et vitesse é t+deltaT é partir de position et vitesse
 	 * é l'instant t
-	 * 
+	 *
 	 * modifie le vecteur position et le vecteur vitesse
-	 * 
+	 *
 	 * laisse le vecteur accélération intact
 	 *
 	 * La bille subit par défaut un mouvement uniformément accéléré
 	 */
-	public void déplacer(double deltaT) {
+	/*public void déplacer(double deltaT) {
 		Cinematique.mouvementUniformémentAccéléré(this.getPosition(), this.getVitesse(), this.getAccélération(),
 				deltaT);
-	}
+	}*/
+
+	public abstract void déplacer(double deltaT);
 
 	/**
 	 * calcul (c-é-d mise é jour) éventuel du vecteur accélération. billes est la
@@ -135,26 +136,24 @@ public abstract class Bille {
 	 * gestion de l'éventuelle collision de cette bille avec les autres billes
 	 *
 	 * billes est la liste de toutes les billes en mouvement
-	 * 
+	 *
 	 * Le comportement par défaut est le choc parfaitement élastique (c-é-d rebond
 	 * sans amortissement)
-	 * 
+	 *
 	 * @return true si il y a collision et dans ce cas les positions et vecteurs
 	 *         vitesses des 2 billes impliquées dans le choc sont modifiées si
 	 *         renvoie false, il n'y a pas de collision et les billes sont laissées
 	 *         intactes
 	 */
-	public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
-		return OutilsBille.gestionCollisionBilleBille(this, billes);
-	}
+	public abstract boolean gestionCollisionBilleBille(Vector<Bille> billes);
 
 	/**
 	 * gestion de l'éventuelle collision de la bille (this) avec le contour
 	 * rectangulaire de l'écran défini par (abscisseCoinHautGauche,
 	 * ordonnéeCoinHautGauche, largeur, hauteur)
-	 * 
+	 *
 	 * détecte si il y a collision et le cas échéant met é jour position et vitesse
-	 * 
+	 *
 	 * La nature du comportement de la bille en réponse é cette collision est
 	 * définie dans les classes dérivées
 	 */
@@ -169,24 +168,24 @@ public abstract class Bille {
 	public void dessine(Graphics g) // référence awt : mauvais
 	{
 
-
 		int width, height;
 		int xMin, yMin;
 
-		xMin = (int) Math.round(position.x - rayon);
-		yMin = (int) Math.round(position.y - rayon);
+		xMin = (int) Math.round(this.getPosition().x - this.getRayon());
+		yMin = (int) Math.round(this.getPosition().y - this.getRayon());
 
-		width = height = 2 * (int) Math.round(rayon);
+		width = height = 2 * (int) Math.round(this.getRayon());
 
-		g.setColor(couleur);
+		g.setColor(this.getCouleur());
 		g.fillOval(xMin, yMin, width, height);
 		g.setColor(Color.CYAN);
 		g.drawOval(xMin, yMin, width, height);
 	}
 
+
 	public String toString() {
-		return "centre = " + position + " rayon = " + rayon + " vitesse = " + vitesse + " accélération = "
-				+ accélération + " couleur = " + couleur + "clef = " + clef;
+		return "centre = " + this.getPosition() + " rayon = " + this.getRayon() + " vitesse = " + this.getVitesse() + " accélération = "
+				+ this.getAccélération() + " couleur = " + this.getCouleur() + " clef = " + this.getClef();
 	}
 
 //----------------- classe Bille -------------------------------------
