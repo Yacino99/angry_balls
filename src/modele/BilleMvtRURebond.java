@@ -1,3 +1,4 @@
+/*
 package modele;
 
 import java.awt.Color;
@@ -5,6 +6,7 @@ import java.awt.Color;
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 
+*/
 /**
  * 
  * Bille rebondissant sur les murs et subissant un mouvement rectiligne uniforme (mouvment en ligne droite é vitesse constante)
@@ -12,7 +14,8 @@ import mesmaths.geometrie.base.Vecteur;
  * 
  *  A MODIFIER
  *  
- *  */
+ *  *//*
+
 public class BilleMvtRURebond extends Bille
 {
 
@@ -34,3 +37,4 @@ Collisions.collisionBilleContourAvecRebond( this.getPosition(), this.getRayon(),
 }
 
 
+*/

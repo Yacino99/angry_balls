@@ -1,3 +1,4 @@
+/*
 package modele;
 
 import java.awt.Color;
@@ -11,7 +12,7 @@ import musique.SonLong;
 import vues.BoutonChoixHurlement;
 import vues.VueBillard;
 
-/**
+*
  * 
  * Bille s'arrétant sur les bords et subissant l'attraction des autres billes.
  *
@@ -26,29 +27,39 @@ import vues.VueBillard;
  * 
  * A MODIFIER
  * 
- */
+
+
 
 public class BilleHurlanteMvtNewtonArret extends Bille implements ItemListener // mauvais : dépend de awt
 {
-	private static final int DELAI_MIN = 10; /* délai minimum de rafraichissement du son. en millisecondes */
-	public static final int DELAI_MAX = 150; /* délai maximum de rafraichissement du son. en millisecondes */
-	public SonLong sonLong; /* bande son é diffuser */
-	int i; /*
+	private static final int DELAI_MIN = 10;
+ délai minimum de rafraichissement du son. en millisecondes
+
+	public static final int DELAI_MAX = 150;
+ délai maximum de rafraichissement du son. en millisecondes
+
+	public SonLong sonLong;
+ bande son é diffuser
+
+	int i;
 			 * né de l'élément de sonLong é jouer. on doit avoir i >= 0. sonLong se charge
 			 * de faire le modulo pour obtenir un indice correct et pour boucler ainsi sur
 			 * le tableau inscrit dans sonLong
-			 */
-	long dernierInstant; /* dernier instant oé le son a été diffusé */
+
+
+	long dernierInstant;
+ dernier instant oé le son a été diffusé
+
 	VueBillard vueBillard;
 
 	private static final double COEFF_VOLUME = 6; // plus la valeur est grande, plus le son augmente rapidement en fct
 													// de la vitesse de la boule
 
-	/*
 	 * public BilleHurlante(Bille suivant, SonLong sonLong, VueBillard vueBillard) {
 	 * super(suivant); this.sonLong = sonLong; i = 0; dernierInstant =
 	 * System.currentTimeMillis(); this.vueBillard = vueBillard; }
-	 */
+
+
 
 	public BilleHurlanteMvtNewtonArret(Vecteur position, double rayon, Vecteur vitesse, Color couleur, SonLong sonLong,
 			VueBillard vueBillard) {
@@ -73,30 +84,37 @@ public class BilleHurlanteMvtNewtonArret extends Bille implements ItemListener /
 		double y = Math.exp(-COEFF_VOLUME * n); // y = e^(-COEFF*n). on obtient donc 0 < y <= 1
 		double volume = 1 - y; // on obtient 0 <= volume < 1 avec volume == 0 si n == 0 et volume proche de 1
 								// si n est grand
-		double x1 = p.x / xMax; /* on obtient 0 <= x1 <= 1 */ //// System.err.println("dans BilleHurlante.déplacer() :
+		double x1 = p.x / xMax;
+ on obtient 0 <= x1 <= 1
+ //// System.err.println("dans BilleHurlante.déplacer() :
 																//// x1 = "+ x1);
 		double balance = 2 * x1 - 1; // on obtient -1 <= balance <= 1
 										//// System.err.println("volume = " + volume);
 //double v2 = volume*volume;
 		int délai = (int) (DELAI_MIN * volume
-				+ DELAI_MAX * y); /* le délai entre 2 diffusions diminue lorsque la vitesse augmente */
+				+ DELAI_MAX * y);
+ le délai entre 2 diffusions diminue lorsque la vitesse augmente
+
 		long instant = System.currentTimeMillis();
 		if (instant
-				- this.dernierInstant >= délai) /*
+				- this.dernierInstant >= délai)
 												 * la fréquence de diffusion augmente donc avec la vitesse de la bille
-												 */
+
+
 		{
 			double coeffPitch = 1;
-			this.sonLong.joue(i++, volume, balance, coeffPitch); /* le son est diffusé dans un thread séparé */
+			this.sonLong.joue(i++, volume, balance, coeffPitch);
+ le son est diffusé dans un thread séparé
+
 			this.dernierInstant = instant;
 		}
 	}
 
-	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
-	 */
+
+
 	@Override
 	public void gestionAccélération(Vector<Bille> billes) {
 		super.gestionAccélération(billes); // remise é zéro du vecteur accélération
@@ -126,3 +144,4 @@ public class BilleHurlanteMvtNewtonArret extends Bille implements ItemListener /
 	}
 
 } // classe BilleHurlanteMvtNewtonArret
+*/

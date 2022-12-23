@@ -1,3 +1,4 @@
+/*
 package modele;
 
 import java.awt.Color;
@@ -7,6 +8,7 @@ import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;
 
+*/
 /**
  * 
  * Bille rebondissant sur les murs, subissant un mouvement rectiligne (mouvement en ligne droite) et subissant le frottement dans l'air
@@ -16,7 +18,8 @@ import mesmaths.mecanique.MecaniquePoint;
  * 
  *  A MODIFIER
  *  
- *  */
+ *  *//*
+
 public class BilleMvtPesanteurFrottementRebond extends Bille
 {
 Vecteur pesanteur;
@@ -30,9 +33,11 @@ this.pesanteur = pesanteur;
 
 
 
+*/
 /* (non-Javadoc)
  * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
- */
+ *//*
+
 @Override
 public void gestionAccélération(Vector<Bille> billes)
 {
@@ -51,3 +56,4 @@ Collisions.collisionBilleContourAvecRebond(this.getPosition(), this.getRayon(), 
 }
 
 }
+*/

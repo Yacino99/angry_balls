@@ -1,3 +1,4 @@
+/*
 
 package modele;
 
@@ -8,6 +9,7 @@ import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
 import mesmaths.mecanique.MecaniquePoint;
 
+*/
 /**
  * 
  * Bille rebondissant sur les bords, subissant le frottement dans l'air et subissant l'attraction des autres billes
@@ -15,7 +17,8 @@ import mesmaths.mecanique.MecaniquePoint;
  * 
  *  A MODIFIER
  *  
- *  */
+ *  *//*
+
 public class BilleMvtNewtonFrottementRebond extends Bille
 {
 
@@ -26,11 +29,11 @@ super(centre, rayon, vitesse, couleur);
 }
 
 
-
-
+*/
 /* (non-Javadoc)
  * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
- */
+ *//*
+
 @Override
 public void gestionAccélération(Vector<Bille> billes)
 {
@@ -51,3 +54,4 @@ Collisions.collisionBilleContourAvecRebond(this.getPosition(), this.getRayon(), 
 }
 
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package base;
 
 import java.awt.Color;
@@ -11,10 +12,11 @@ import vues.VueBillard;
 
 public class TestAnimationBilles {
 
-	/**
+*
 	 * @param args
 	 * @throws IOException
-	 */
+
+
 	public static void main(String[] args) throws IOException {
 		Vector<Bille> billes = new Vector<Bille>();
 
@@ -43,3 +45,4 @@ public class TestAnimationBilles {
 	}
 
 }
+*/
