@@ -16,6 +16,5 @@ public class Newton extends DecorateurBille {
     {
         super.gestionAccélération(billes);                              // remise é zéro du vecteur accélération
         this.billeDecoree.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this.billeDecoree, billes));     // contribution de l'accélération due é l'attraction des autres billes
-        this.billeDecoree.getAccélération().ajoute(MecaniquePoint.freinageFrottement(this.billeDecoree.masse(), this.billeDecoree.getVitesse()));      // contribution de l'accélération due au frottement dans l'air
     }
 }
