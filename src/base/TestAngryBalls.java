@@ -1,6 +1,7 @@
 package base;
 
 import java.awt.Color;
+import java.awt.event.ItemListener;
 import java.io.File;
 import java.util.Vector;
 
@@ -9,7 +10,9 @@ import modele.*;
 import modele.accelerations.Frottement;
 import modele.accelerations.Newton;
 import modele.accelerations.Pesanteur;
+import modele.accelerations.RU;
 import modele.collisions.Bloque;
+import modele.collisions.Hurlements;
 import modele.collisions.PasseMuraille;
 import modele.collisions.Rebond;
 import musique.SonLong;
@@ -92,6 +95,7 @@ public class TestAngryBalls {
 
 		// BilleMvtRURebond
 		Bille billeMvtRURebond = new BilleNormal(p0,rayon,v0,Color.RED);
+		billeMvtRURebond = new RU(billeMvtRURebond);
 		billeMvtRURebond = new Rebond(billeMvtRURebond);
 
 		// BbilleMvtNewtonFrottementRebond
@@ -110,14 +114,18 @@ public class TestAngryBalls {
 
 		// BilleHurlanteMvtNewtonArret
 		Bille billeHurlanteMvtNewtonArret = new BilleNormal(p3,rayon,v3,Color.BLACK);
-		//billeHurlanteMvtNewtonArret = new Hurlements(billeHurlanteMvtNewtonArret,hurlements[choixHurlementInitial], cadre);
+		//Gestion hurlements
+		Hurlements balleHurlements = new Hurlements(billeHurlanteMvtNewtonArret,hurlements[choixHurlementInitial], cadre);
+		billeHurlanteMvtNewtonArret = balleHurlements;
+		cadre.addChoixHurlementListener(balleHurlements); // é présent on peut changer le son de la bille qui hurle
+		//----------
 		billeHurlanteMvtNewtonArret = new Newton(billeHurlanteMvtNewtonArret);
 		billeHurlanteMvtNewtonArret = new Bloque(billeHurlanteMvtNewtonArret);
 
-		//cadre.addChoixHurlementListener(billeHurlanteMvtNewtonArret); // é présent on peut changer le son de la bille qui hurle
 
 		// BilleMvtRUPasseMuraille
 		Bille billeMvtRUPasseMuraille = new BilleNormal(p4,rayon,v4,Color.BLUE);
+		billeMvtRUPasseMuraille = new RU(billeMvtRUPasseMuraille);
 		billeMvtRUPasseMuraille = new PasseMuraille(billeMvtRUPasseMuraille);
 
 
