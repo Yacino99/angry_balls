@@ -1,6 +1,7 @@
 package modele;
 
 import mesmaths.cinematique.Cinematique;
+import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
 import vues.BoutonChoixHurlement;
 
@@ -9,6 +10,15 @@ import java.awt.event.ItemEvent;
 import java.util.Vector;
 
 public class BilleNormal extends Bille {
+
+
+    public Vecteur position; // centre de la bille
+    public double rayon; // rayon > 0
+    public Vecteur vitesse;
+    public Vecteur accélération;
+    public int clef; // identifiant unique de cette bille
+
+    public static double ro = 1; // masse volumique
     protected Color couleur; // référence awt : mauvais
     protected static int prochaineClef = 0;
 
@@ -46,21 +56,28 @@ public class BilleNormal extends Bille {
         return this.clef;
     }
 
+    public double masse() {
+        return ro * Geop.volumeSphère(this.getRayon());
+    }
+
     public Color getCouleur() {
         return this.couleur;
     }
 
     public void déplacer(double deltaT) {
-        Cinematique.mouvementUniformémentAccéléré(this.getPosition(), this.getVitesse(), this.getAccélération(),
-                deltaT);
+        Cinematique.mouvementUniformémentAccéléré(this.getPosition(), this.getVitesse(), this.getAccélération(), deltaT);
     }
 
-    @Override
-    public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
+    public void gestionAccélération(Vector<Bille> billes) {
+        this.getAccélération().set(Vecteur.VECTEURNUL);
     }
 
     public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
         return OutilsBille.gestionCollisionBilleBille(this, billes);
     }
+    @Override
+    public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
+    }
+
 
 }

@@ -27,18 +27,6 @@ import mesmaths.geometrie.base.Vecteur;
  */
 public abstract class Bille {
 //----------------- classe Bille-------------------------------------
-
-	public Vecteur position; // centre de la bille
-	public double rayon; // rayon > 0
-	public Vecteur vitesse;
-	public Vecteur accélération;
-	public int clef; // identifiant unique de cette bille
-
-	//protected Color couleur; // référence awt : mauvais
-
-
-	public static double ro = 1; // masse volumique
-
 	/**
 	 * @param centre
 	 * @param rayon
@@ -98,9 +86,7 @@ public abstract class Bille {
 	 */
 	public abstract int getClef();
 
-	public double masse() {
-		return ro * Geop.volumeSphère(this.getRayon());
-	}
+	public abstract double masse();
 
 	public abstract Color getCouleur();
 	/**
