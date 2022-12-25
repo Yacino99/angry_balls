@@ -15,6 +15,7 @@ import modele.collisions.Bloque;
 import modele.collisions.Hurlements;
 import modele.collisions.PasseMuraille;
 import modele.collisions.Rebond;
+import modele.state.ControleurGeneral;
 import musique.SonLong;
 import vues.CadreAngryBalls;
 
@@ -135,6 +136,8 @@ public class TestAngryBalls {
 		billes.add(billeMvtPesanteurFrottementRebond);
 		billes.add(billeHurlanteMvtNewtonArret);
 		billes.add(billeMvtRUPasseMuraille);
+
+		ControleurGeneral controleurGeneral = new ControleurGeneral(billes,cadre.billard);
 
 		//billes.add(new BilleMvtRURebond(p0, rayon, v0, Color.red));
 		//billes.add(new BilleMvtPesanteurFrottementRebond(p1, rayon, v1, new Vecteur(0, 0.001), Color.yellow));

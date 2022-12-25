@@ -14,6 +14,10 @@ public abstract class DecorateurBille extends Bille{
 
     protected Bille billeDecoree;
 
+    public Bille getBilleDecoree() {
+        return billeDecoree;
+    }
+
     public DecorateurBille(Bille billeDecoree){
         this.billeDecoree = billeDecoree;
     }
