@@ -3,10 +3,12 @@ package modele;
 import mesmaths.cinematique.Cinematique;
 import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
-import vues.BoutonChoixHurlement;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
-import java.awt.event.ItemEvent;
+import java.io.File;
 import java.util.Vector;
 
 public class BilleNormal extends Bille {
@@ -64,6 +66,9 @@ public class BilleNormal extends Bille {
         return this.couleur;
     }
 
+    public void setPosition(Vecteur position) {
+        this.position = position;
+    }
     public void déplacer(double deltaT) {
         Cinematique.mouvementUniformémentAccéléré(this.getPosition(), this.getVitesse(), this.getAccélération(), deltaT);
     }
@@ -72,7 +77,13 @@ public class BilleNormal extends Bille {
         this.getAccélération().set(Vecteur.VECTEURNUL);
     }
 
+
     public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
+        //return OutilsBille.gestionCollisionBilleBille(this, billes);
+        if (OutilsBille.gestionCollisionBilleBille(this, billes)){
+            playSound("collision_bille_bille.wav");
+        }
+
         return OutilsBille.gestionCollisionBilleBille(this, billes);
     }
     @Override

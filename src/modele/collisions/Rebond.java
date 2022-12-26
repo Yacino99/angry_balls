@@ -16,7 +16,10 @@ public class Rebond extends DecorateurBille {
 
     @Override
     public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
-        Collisions.collisionBilleContourAvecRebond( this.billeDecoree.getPosition(), this.billeDecoree.getRayon(), this.billeDecoree.getVitesse(), abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
+        //if(Collisions.collisionBilleContourAvecRebond( this.billeDecoree.getPosition(), this.billeDecoree.getRayon(), this.billeDecoree.getVitesse(), abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur));
+        if(Collisions.collisionBilleContourAvecRebond( this.billeDecoree.getPosition(), this.billeDecoree.getRayon(), this.billeDecoree.getVitesse(), abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur)){
+            this.billeDecoree.playSound("choc_bille_bande.wav");
+        }
     }
 
 }

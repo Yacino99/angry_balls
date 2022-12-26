@@ -1,13 +1,15 @@
 package modele;
 
 import java.awt.*;
-import java.awt.event.ItemListener;
+import java.io.File;
 import java.util.Vector;
 
-import mesmaths.cinematique.Cinematique;
-import mesmaths.cinematique.Collisions;
-import mesmaths.geometrie.base.Geop;
 import mesmaths.geometrie.base.Vecteur;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 /**
  * Cas général d'une bille de billard
@@ -89,6 +91,8 @@ public abstract class Bille {
 	public abstract double masse();
 
 	public abstract Color getCouleur();
+
+	public abstract void setPosition(Vecteur position);
 	/**
 	 * mise a jour de position et vitesse é t+deltaT é partir de position et vitesse
 	 * é l'instant t
@@ -172,6 +176,26 @@ public abstract class Bille {
 	public String toString() {
 		return "centre = " + this.getPosition() + " rayon = " + this.getRayon() + " vitesse = " + this.getVitesse() + " accélération = "
 				+ this.getAccélération() + " couleur = " + this.getCouleur() + " clef = " + this.getClef();
+	}
+
+	public synchronized void playSound(String sound) {
+		new Thread(new Runnable() {
+			// The wrapper thread is unnecessary, unless it blocks on the
+			// Clip finishing; see comments.
+			public void run() {
+				try {
+					Clip clip = AudioSystem.getClip();
+					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/bruits/"+sound));
+					clip.open(inputStream);
+					FloatControl gainControl =
+							(FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+					gainControl.setValue(-10.0f);
+					clip.start();
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
+			}
+		}).start();
 	}
 
 //----------------- classe Bille -------------------------------------
