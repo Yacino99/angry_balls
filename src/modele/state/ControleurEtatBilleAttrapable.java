@@ -15,7 +15,7 @@ public class ControleurEtatBilleAttrapable extends ControleurEtat{
     public void mousePressed(MouseEvent e) {
         for (Bille bille : this.controleurGeneral.billes){
             if(Geop.appartientDisque(new Vecteur(e.getX(), e.getY()), bille.getPosition(), bille.getRayon())) {
-                System.out.println("Touchéééééé");
+                System.out.println("Touchéééééé  "+bille.getPosition());
                 //On applique la decoration BillePilotee à la bille selectionnee
                 this.billePilotee = new BillePilotee(bille);
                 this.controleurGeneral.billes.remove(bille);

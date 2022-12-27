@@ -31,7 +31,7 @@ public class ControleurEtatBilleAttrapee extends ControleurEtat{
         forceAppliquee.retire(this.suivant.billePilotee.getPosition());
         // prendre en consideration la masse de la bille
         forceAppliquee.multiplie(impacteDeLaMasse);
-        //forceAppliquee.multiplie(0.00003);
+        forceAppliquee.multiplie(0.00003);
         // application de la force
         this.suivant.billePilotee.appliquerForce(forceAppliquee);
     }

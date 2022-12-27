@@ -5,6 +5,8 @@ import java.io.File;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
+import modele.visitor.Visitor;
+import modele.visitor.VisitorAWT;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -196,6 +198,10 @@ public abstract class Bille {
 				}
 			}
 		}).start();
+	}
+
+	public void accept(Visitor visitor, Graphics graphics,Color couleur) {
+		visitor.dessineAWT(this,graphics,couleur);
 	}
 
 //----------------- classe Bille -------------------------------------

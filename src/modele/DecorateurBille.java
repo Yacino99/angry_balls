@@ -70,4 +70,8 @@ public abstract class DecorateurBille extends Bille{
     public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur){
         Collisions.collisionBilleContourAvecRebond( this.billeDecoree.getPosition(), this.billeDecoree.getRayon(), this.billeDecoree.getVitesse(), abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
     }
+
+    public void setPosition(Vecteur position) {
+        this.billeDecoree.setPosition(position);
+    }
 }

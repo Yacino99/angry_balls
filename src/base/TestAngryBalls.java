@@ -130,7 +130,6 @@ public class TestAngryBalls {
 		billeMvtRUPasseMuraille = new PasseMuraille(billeMvtRUPasseMuraille);
 
 
-
 		billes.add(billeMvtRURebond);
 		billes.add(billeMvtNewtonFrottementRebond);
 		billes.add(billeMvtPesanteurFrottementRebond);

@@ -5,7 +5,7 @@ import modele.DecorateurBille;
 
 import java.util.Vector;
 
-// Je ne sais pas si cette classe est naicessaire puisque le mouvement est rectiligne uniforme par defaut
+// Je ne sais pas si cette classe est necessaire puisque le mouvement est rectiligne uniforme par defaut
 public class RU extends DecorateurBille {
     public RU(Bille billeDecoree) {
         super(billeDecoree);
