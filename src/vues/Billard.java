@@ -31,8 +31,8 @@ public class Billard extends Canvas {
 		int i;
 
 		for (i = 0; i < this.billes.size(); ++i)
-			this.billes.get(i).dessine(graphics);
-			//this.billes.get(i).accept(new VisitorAWT(),graphics);
+			//this.billes.get(i).dessine(graphics);
+			this.billes.get(i).acceptAWT(new VisitorAWT(),graphics);
 
 		// System.out.println("billes dans le billard = " + billes);
 	}

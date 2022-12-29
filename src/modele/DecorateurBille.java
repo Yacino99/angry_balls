@@ -48,7 +48,7 @@ public abstract class DecorateurBille extends Bille{
         return this.billeDecoree.masse();
     }
 
-    public Color getCouleur() {
+    public String getCouleur() {
         return this.billeDecoree.getCouleur();
     }
 

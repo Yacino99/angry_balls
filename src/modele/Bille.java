@@ -2,6 +2,7 @@ package modele;
 
 import java.awt.*;
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
@@ -92,7 +93,7 @@ public abstract class Bille {
 
 	public abstract double masse();
 
-	public abstract Color getCouleur();
+	public abstract String getCouleur();
 
 	public abstract void setPosition(Vecteur position);
 	/**
@@ -157,22 +158,6 @@ public abstract class Bille {
 	 * et le double buffering pour éviter éa
 	 */
 
-	public void dessine(Graphics g) // référence awt : mauvais
-	{
-
-		int width, height;
-		int xMin, yMin;
-
-		xMin = (int) Math.round(this.getPosition().x - this.getRayon());
-		yMin = (int) Math.round(this.getPosition().y - this.getRayon());
-
-		width = height = 2 * (int) Math.round(this.getRayon());
-
-		g.setColor(this.getCouleur());
-		g.fillOval(xMin, yMin, width, height);
-		g.setColor(Color.CYAN);
-		g.drawOval(xMin, yMin, width, height);
-	}
 
 
 	public String toString() {
@@ -200,8 +185,8 @@ public abstract class Bille {
 		}).start();
 	}
 
-	public void accept(Visitor visitor, Graphics graphics,Color couleur) {
-		visitor.dessineAWT(this,graphics,couleur);
+	public void acceptAWT(Visitor visitor, Graphics graphics) {
+		visitor.dessineAWT(this,graphics);
 	}
 
 //----------------- classe Bille -------------------------------------

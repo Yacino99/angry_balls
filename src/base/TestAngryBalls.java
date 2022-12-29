@@ -95,18 +95,18 @@ public class TestAngryBalls {
 //--------------- ici commence la partie é changer ---------------------------------
 
 		// BilleMvtRURebond
-		Bille billeMvtRURebond = new BilleNormal(p0,rayon,v0,Color.RED);
+		Bille billeMvtRURebond = new BilleNormal(p0,rayon,v0,/*Color.RED*/"red");
 		billeMvtRURebond = new RU(billeMvtRURebond);
 		billeMvtRURebond = new Rebond(billeMvtRURebond);
 
 		// BbilleMvtNewtonFrottementRebond
-		Bille billeMvtNewtonFrottementRebond = new BilleNormal(p1,rayon,v1,Color.GREEN);
+		Bille billeMvtNewtonFrottementRebond = new BilleNormal(p1,rayon,v1,/*Color.GREEN*/"green");
 		billeMvtNewtonFrottementRebond = new Newton(billeMvtNewtonFrottementRebond);
 		billeMvtNewtonFrottementRebond = new Frottement(billeMvtNewtonFrottementRebond);
 		billeMvtNewtonFrottementRebond = new Rebond(billeMvtNewtonFrottementRebond);
 
 		// BilleMvtPesanteurFrottementRebond
-		Bille billeMvtPesanteurFrottementRebond = new BilleNormal(p2,rayon,v2,Color.YELLOW);
+		Bille billeMvtPesanteurFrottementRebond = new BilleNormal(p2,rayon,v2,/*Color.YELLOW*/"yellow");
 		billeMvtPesanteurFrottementRebond = new Pesanteur(billeMvtPesanteurFrottementRebond, new Vecteur(0, 0.001));
 		billeMvtPesanteurFrottementRebond = new Frottement(billeMvtPesanteurFrottementRebond);
  		billeMvtPesanteurFrottementRebond = new Rebond(billeMvtPesanteurFrottementRebond);
@@ -114,7 +114,7 @@ public class TestAngryBalls {
 		//Hurlements
 
 		// BilleHurlanteMvtNewtonArret
-		Bille billeHurlanteMvtNewtonArret = new BilleNormal(p3,rayon,v3,Color.BLACK);
+		Bille billeHurlanteMvtNewtonArret = new BilleNormal(p3,rayon,v3,/*Color.BLACK*/"black");
 		//Gestion hurlements
 		Hurlements balleHurlements = new Hurlements(billeHurlanteMvtNewtonArret,hurlements[choixHurlementInitial], cadre);
 		billeHurlanteMvtNewtonArret = balleHurlements;
@@ -125,7 +125,7 @@ public class TestAngryBalls {
 
 
 		// BilleMvtRUPasseMuraille
-		Bille billeMvtRUPasseMuraille = new BilleNormal(p4,rayon,v4,Color.BLUE);
+		Bille billeMvtRUPasseMuraille = new BilleNormal(p4,rayon,v4,/*Color.BLUE*/"blue");
 		billeMvtRUPasseMuraille = new RU(billeMvtRUPasseMuraille);
 		billeMvtRUPasseMuraille = new PasseMuraille(billeMvtRUPasseMuraille);
 

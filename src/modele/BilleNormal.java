@@ -21,10 +21,11 @@ public class BilleNormal extends Bille {
     public int clef; // identifiant unique de cette bille
 
     public static double ro = 1; // masse volumique
-    protected Color couleur; // référence awt : mauvais
+//    protected Color couleur; // référence awt : mauvais
+    protected String couleur;
     protected static int prochaineClef = 0;
 
-    public BilleNormal(Vecteur position, double rayon, Vecteur vitesse, Vecteur accélération, Color couleur) {
+    public BilleNormal(Vecteur position, double rayon, Vecteur vitesse, Vecteur accélération, String couleur) {
         this.position = position;
         this.rayon = rayon;
         this.vitesse = vitesse;
@@ -33,7 +34,7 @@ public class BilleNormal extends Bille {
         this.clef = prochaineClef++;
     }
 
-    public BilleNormal(Vecteur position, double rayon, Vecteur vitesse, Color couleur) {
+    public BilleNormal(Vecteur position, double rayon, Vecteur vitesse, String couleur) {
         this(position, rayon, vitesse, new Vecteur(), couleur);
     }
 
@@ -62,7 +63,10 @@ public class BilleNormal extends Bille {
         return ro * Geop.volumeSphère(this.getRayon());
     }
 
-    public Color getCouleur() {
+//    public Color getCouleur() {
+//        return this.couleur;
+//    }
+    public String getCouleur() {
         return this.couleur;
     }
 
