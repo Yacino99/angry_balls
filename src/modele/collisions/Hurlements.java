@@ -34,6 +34,7 @@ public class Hurlements extends DecorateurBille implements ItemListener{
      * super(suivant); this.sonLong = sonLong; i = 0; dernierInstant =
      * System.currentTimeMillis(); this.vueBillard = vueBillard; }
      */
+    // ajouter le son en constructeur
     public Hurlements(Bille billeDecoree, SonLong sonLong, VueBillard vueBillard) {
         super(billeDecoree);
         this.sonLong = sonLong;

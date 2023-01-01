@@ -165,6 +165,7 @@ public abstract class Bille {
 				+ this.getAccélération() + " couleur = " + this.getCouleur() + " clef = " + this.getClef();
 	}
 
+	// deplacer cette methode dans le decorateur hurlement ???
 	public synchronized void playSound(String sound) {
 		new Thread(new Runnable() {
 			// The wrapper thread is unnecessary, unless it blocks on the
@@ -185,6 +186,7 @@ public abstract class Bille {
 		}).start();
 	}
 
+	// dependance AWT
 	public void acceptAWT(Visitor visitor, Graphics graphics) {
 		visitor.dessineAWT(this,graphics);
 	}

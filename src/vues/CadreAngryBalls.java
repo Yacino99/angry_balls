@@ -74,7 +74,6 @@ public class CadreAngryBalls extends Frame implements VueBillard {
 		this.ligneBoutonsChoixHurlement = new PanneauChoixHurlement(hurlements, choixHurlementInitial);
 		this.bas.add(this.ligneBoutonsChoixHurlement);
 
-
 	}
 
 	public double largeurBillard() {

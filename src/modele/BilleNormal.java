@@ -77,11 +77,13 @@ public class BilleNormal extends Bille {
         Cinematique.mouvementUniformémentAccéléré(this.getPosition(), this.getVitesse(), this.getAccélération(), deltaT);
     }
 
+    // ?? repetition dans la classe bille ???
     public void gestionAccélération(Vector<Bille> billes) {
         this.getAccélération().set(Vecteur.VECTEURNUL);
     }
 
 
+    // cette classe la ne gere paas le son
     public boolean gestionCollisionBilleBille(Vector<Bille> billes) {
         //return OutilsBille.gestionCollisionBilleBille(this, billes);
         if (OutilsBille.gestionCollisionBilleBille(this, billes)){

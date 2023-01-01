@@ -16,3 +16,5 @@ public class Frottement extends DecorateurBille {
         this.billeDecoree.getAccélération().ajoute(MecaniquePoint.freinageFrottement(this.billeDecoree.masse(), this.billeDecoree.getVitesse())); // contribution de l'accélération due au frottement dans l'air
     }
 }
+
+// augmenter la masse pour up le frottement pour limiter l'acceleration
