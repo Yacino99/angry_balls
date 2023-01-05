@@ -94,6 +94,7 @@ public class BilleNormal extends Bille {
     }
     @Override
     public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
+        //playSound("collision_bille_bille.wav");
     }
 
 

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.util.Vector;
 
 import modele.Bille;
+import modele.visitor.Visitor;
 import modele.visitor.VisitorAWT;
 
 /**
@@ -29,10 +30,10 @@ public class Billard extends Canvas {
 	@Override
 	public void paint(Graphics graphics) {
 		int i;
-
+		Visitor visiteurAWT = new VisitorAWT(graphics);
 		for (i = 0; i < this.billes.size(); ++i)
 			//this.billes.get(i).dessine(graphics);
-			this.billes.get(i).acceptAWT(new VisitorAWT(),graphics);
+			this.billes.get(i).acceptAWT(visiteurAWT);
 
 		// System.out.println("billes dans le billard = " + billes);
 	}

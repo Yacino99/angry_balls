@@ -6,8 +6,16 @@ import java.awt.*;
 import java.lang.reflect.Field;
 
 public class VisitorAWT implements Visitor{
+
+    Graphics graphics;
+
+    public VisitorAWT(Graphics graphics)
+    {
+        this.graphics = graphics;
+    }
+
     @Override
-    public void dessineAWT(Bille bille, Graphics g) {
+    public void dessineAWT(Bille bille) {
         int width, height;
         int xMin, yMin;
 
@@ -24,9 +32,9 @@ public class VisitorAWT implements Visitor{
             color = null; // Not defined
         }
 
-        g.setColor(/*bille.getCouleur()*/color);
-        g.fillOval(xMin, yMin, width, height);
-        g.setColor(/*bille.getCouleur()*/color);
-        g.drawOval(xMin, yMin, width, height);
+        graphics.setColor(/*bille.getCouleur()*/color);
+        graphics.fillOval(xMin, yMin, width, height);
+        graphics.setColor(/*bille.getCouleur()*/color);
+        graphics.drawOval(xMin, yMin, width, height);
     }
 }

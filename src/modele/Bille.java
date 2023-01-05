@@ -186,9 +186,9 @@ public abstract class Bille {
 		}).start();
 	}
 
-	// dependance AWT
-	public void acceptAWT(Visitor visitor, Graphics graphics) {
-		visitor.dessineAWT(this,graphics);
+
+	public void acceptAWT(Visitor visitor) {
+		visitor.dessineAWT(this);
 	}
 
 //----------------- classe Bille -------------------------------------
